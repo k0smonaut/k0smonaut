@@ -32,10 +32,10 @@ function calculateCost() {
     // Define scaling factors
     const baseScale = baseCost / 10; 
     const aggressiveScaleFactor = 1; 
-    const taperScaleFactor = 0.6; 
+    const taperScaleFactor = 0.1; 
 
     // Define power function parameters
-    const powerBase = 1.05; 
+    const powerBase = 1.02; 
     const powerOffset = 1; 
 
     // Calculate additional cost
