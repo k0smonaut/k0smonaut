@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Cost Estimation Demo</title>
+   
+</head>
+<body>
+    <div class="demo-wrapper">
+        <div class="demo-container">
+            <h1>Video Cost Estimation</h1>
+
+            <label for="tier">Select a video package:</label><br />
+            <input type="radio" id="tierA" name="tier" value="A" checked>
+            Pure ($150 minimum, up to 10 seconds)<br />
+            <input type="radio" id="tierB" name="tier" value="B">
+            Premier ($300 minimum, up to 10 seconds)<br />
+
+            <label for="totalSeconds">Select total seconds:</label><br />
+            <input type="range" id="totalSeconds" name="totalSeconds" min="10" max="900" value="10" step="5">
+            <span id="secondsDisplay">10</span> seconds<br /><br />
+
+            <label for="locale">Enter sales tax rate (%):</label><br />
+            <input type="number" id="locale" name="locale" min="0" step="0.01" value="6.35"><br /><br />
+
+            <button onclick="calculateCost()">Calculate cost</button><br /><br />
+
+            <h2>Total cost: $<span id="totalCost">150.00</span></h2>
+        </div>
+    </div>
+
+    <div id="debug-data-container">
+        <label for="debug-wrapper">Debug data:</label>
+        <div id="debug-wrapper">
+            <p><strong>Input Factors:</strong></p>
+            <span id="inputTier">Selected tier: <span id="inputTierValue">A</span></span><br />
+            <span id="inputTotalSeconds">Total seconds: <span id="inputTotalSecondsValue">10</span></span><br />
+            <span id="inputTaxRate">Tax rate: <span id="inputTaxRateValue">6.35%</span></span><br />
+            <span id="powerBase">Power function base: <span id="powerBaseValue">1.05</span></span><br />
+            <span id="powerOffset">Power function offset: <span id="powerOffsetValue">1</span></span><br />
+            <p><strong>Curve and Scale Factors:</strong></p>
+            <span id="additionalCost">Additional cost: <span id="additionalCostValue">$0.00</span></span><br />
+            <span id="scaleFactor1">Aggressive scale factor: <span id="scaleFactor1Value">1</span></span><br />
+            <span id="scaleFactor2">Taper scale factor: <span id="scaleFactor2Value">0.6</span></span><br />
+            <span id="powerFunctionUnder90">Power function under 90: <span id="powerFunctionUnder90Value">1.00</span></span><br />
+            <span id="powerFunctionOver90">Power function over 90: <span id="powerFunctionOver90Value">1.00</span></span><br />
+            <p><strong>Intermediate Calculations:</strong></p>
+            <span id="baseCost">Base cost: <span id="baseCostValue">$150.00</span></span><br />
+            <span id="tierMultiplier">Tier multiplier: <span id="tierMultiplierValue">1</span></span><br />
+            <span id="totalCost">Total cost: <span id="totalCostValue">$150.00</span></span><br />
+        </div>
+    </div>
+    <script src="vid-est-widget.js"></script>
+</body>
+</html>
